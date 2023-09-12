@@ -66,15 +66,15 @@ class Authenticator(dns_common.DNSAuthenticator):
         )
 
     def _get_nitrado_client(self):
-        return _NitradoLexiconClient(
+        return _NitradoClient(
             self.credentials.conf("token"),
             self.ttl
         )
 
 
-class _NitradoLexiconClient:
+class _NitradoClient:
     """
-    Encapsulates all communication with the Njalla API via Lexicon.
+    Encapsulates all communication with the Nitrado API via the nitrado package.
     """
 
     def __init__(self, api_token, ttl):
